@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PC;
 
 class PCController extends Controller
 {
@@ -11,7 +12,7 @@ class PCController extends Controller
      */
     public function index()
     {
-        //
+        return PC::all();
     }
 
     /**
@@ -19,30 +20,32 @@ class PCController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return PC::create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(PC $pc)
     {
-        //
+        return $pc;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, PC $pc)
     {
-        //
+        $pc->update($request->all());
+        return $pc;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PC $pc)
     {
-        //
+        $pc->delete();
+        return response()->noContent();
     }
 }
