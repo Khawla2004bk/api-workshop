@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('brand');
+            $table->string('name');
             $table->string('processor');
             $table->integer('ram');
             $table->integer('storage');
